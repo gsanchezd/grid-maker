@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'grids/new'
   get 'grids/results'
+  get 'grids/preview'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
