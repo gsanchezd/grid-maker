@@ -1,6 +1,15 @@
-pre style="border:solid 1px black;"
+link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css"
+
+script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"
+
+
+pre class="css" style="border:solid 1px black;"
 	code
 		= "[class*=\"col-\"] {float:left; background-color:#666; box-sizing: border-box; border:solid 1px #333; padding:#{@gutter}x;}\n"
 
 		- @cols.times do |i|
 			= ".col-#{i+1}{width: #{(100.0)/@cols * i}%;}\n"
+
+javascript:
+	hljs.initHighlightingOnLoad()
+
