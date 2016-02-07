@@ -8,12 +8,16 @@
 
 	<style type="text/css" media="screen">
 
+		[class*="col-"] {float:left; background-color:#999; box-sizing: border-box; border:solid 1px #333; width:100%;}
+
+		@media only screen and (min-width: 768px) {
+
 		<%= "/* Clearfix */\n" %>
 		<%= raw ".row:after {content: \"\";display: block; clear: both;}\n\n" %>
 
 
 		<%= "/* Floating cols, and padding */\n" %>
-		<%= raw "[class*=\"col-\"] {float:left; box-sizing: border-box; border:solid 1px #333; padding:#{@gutter}px; background-color:#ccc; }\n\n" %>
+		<%= raw "[class*=\"col-\"] {float:left; box-sizing: border-box; border:solid 1px #666; padding:#{@gutter}px; background-color:#ccc; }\n\n" %>
 
 		<%= "/* Columns */\n" %>
 		<% @cols.times do |i| %>
@@ -26,7 +30,7 @@
 			<% i = i + 1 %>
 			<%=raw ".col-offset-#{i}{margin-left: #{(100.0)/@cols * i}%;}\n" %>
 		<% end %>
-
+		}
 	</style>
 </head>
 

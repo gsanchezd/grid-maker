@@ -6,23 +6,36 @@ script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js
 pre class="css" style="border:solid 1px black;"
 	code
 
-		= "/* Clearfix */\n"
-		= ".row:after {content: '';display: block; clear: both;}\n\n"
+		|/* Mobile First */
+
+		= "\n"
+
+		|[class*="col-"] {float:left; background-color:#999; box-sizing: border-box; border:solid 1px #333; width:100%;} 
+
+		= "\n\n"
+
+		| @media only screen and (min-width: 768px) 
+
+		= "\n{"
+
+		= "\n\t/* Clearfix */\n"
+		= "\t.row:after {content: '';display: block; clear: both;}\n\n"
 
 
-		= "/* Floating cols, and padding */\n"
-		= "[class*=\"col-\"] {float:left; box-sizing: border-box; border:solid 1px #333; padding:#{@gutter}x;}\n\n"
+		= "\t/* Floating cols, and padding */\n"
+		= "\t[class*=\"col-\"] {float:left; box-sizing: border-box; border:solid 1px #333; padding:#{@gutter}x;}\n\n"
 
-		= "/* Columns */\n"
+		= "\t/* Columns */\n"
 		- @cols.times do |i|
 			- i = i + 1
-			= ".col-#{i}{width: #{(100.0)/@cols * i}%;}\n"
+			= "\t.col-#{i}{width: #{(100.0)/@cols * i}%;}\n"
 
-		= "\n/* Offsets */\n"
+		= "\n\t/* Offsets */\n"
 		- @cols.times do |i|
 			- i = i + 1
-			= ".col-offset-#{i}{margin-left: #{(100.0)/@cols * i}%;}\n"
+			= "\t.col-offset-#{i}{margin-left: #{(100.0)/@cols * i}%;}\n"
 
+		|}
 
 javascript:
 	hljs.initHighlightingOnLoad()
