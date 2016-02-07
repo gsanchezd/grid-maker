@@ -5,10 +5,28 @@ script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js
 
 pre class="css" style="border:solid 1px black;"
 	code
-		= "[class*=\"col-\"] {float:left; background-color:#666; box-sizing: border-box; border:solid 1px #333; padding:#{@gutter}x;}\n"
 
+		= "/* Clearfix */\n"
+		= ".row:after {content: '';display: block; clear: both;}\n\n"
+
+
+		= "/* Floating cols, and padding */\n"
+		= "[class*=\"col-\"] {float:left; box-sizing: border-box; border:solid 1px #333; padding:#{@gutter}x;}\n\n"
+
+		= "/* Columns */\n"
 		- @cols.times do |i|
-			= ".col-#{i+1}{width: #{(100.0)/@cols * i}%;}\n"
+			- i = i + 1
+			= ".col-#{i}{width: #{(100.0)/@cols * i}%;}\n"
+
+		= "\n/* Offsets */\n"
+		- @cols.times do |i|
+			- i = i + 1
+			= ".col-offset-#{i}{margin-left: #{(100.0)/@cols * i}%;}\n"
+
+h2 style="text-align:center" 
+	a href="http://www.desafiolatam.com" DesafioLatam
+	| ©
+h3 style="text-align:center" Gonzalo Sánchez
 
 javascript:
 	hljs.initHighlightingOnLoad()
