@@ -1,0 +1,6 @@
+pre style="border:solid 1px black;"
+	code
+		= "[class*=\"col-\"] {float:left; background-color:#666; box-sizing: border-box; border:solid 1px #333; padding:#{@gutter}x;}\n"
+
+		- @cols.times do |i|
+			= ".col-#{i+1}{width: #{(100.0)/@cols * i}%;}\n"
